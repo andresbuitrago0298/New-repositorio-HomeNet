@@ -1,0 +1,361 @@
+/* ==========================================================================
+   HomeNet Manager — Estilos globales
+   Paleta basada en las capturas de referencia (prototipos.pdf)
+   ========================================================================== */
+
+:root {
+  --hn-navy-900: #0b1533;   /* sidebar / fondo login oscuro */
+  --hn-navy-800: #101c3f;
+  --hn-navy-700: #16224a;
+  --hn-blue-600: #2952e3;   /* botón primario / acentos */
+  --hn-blue-500: #3b63f0;
+  --hn-blue-100: #e8edfd;
+  --hn-text-light: #eef1fb;
+  --hn-text-muted: #9aa3c0;
+  --hn-bg-app: #f4f6fb;
+  --hn-border: #e7eaf3;
+  --hn-green: #1fa971;
+  --hn-green-bg: #e5f7ef;
+  --hn-red: #e5484d;
+  --hn-red-bg: #fdeaea;
+  --hn-orange: #d98c1f;
+  --hn-orange-bg: #fdf1de;
+  --hn-radius: 0.85rem;
+}
+
+body {
+  background-color: var(--hn-bg-app);
+  font-family: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
+  color: #1c2340;
+}
+
+/* ---------- Login ---------- */
+.login-split {
+  min-height: 100vh;
+}
+
+.login-hero {
+  background: linear-gradient(160deg, var(--hn-navy-900) 0%, var(--hn-navy-700) 100%);
+  color: var(--hn-text-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 15% 20%, rgba(59, 99, 240, 0.25), transparent 40%),
+                    radial-gradient(circle at 85% 75%, rgba(59, 99, 240, 0.18), transparent 45%);
+  pointer-events: none;
+}
+
+.login-hero .brand-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-stat {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--hn-radius);
+  padding: 1rem;
+  text-align: center;
+}
+
+.login-stat .stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.login-stat .stat-label {
+  font-size: 0.72rem;
+  color: var(--hn-text-muted);
+}
+
+.login-form-side {
+  background: #ffffff;
+}
+
+.login-form-side .form-control {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.btn-hn-primary {
+  background-color: var(--hn-blue-600);
+  border-color: var(--hn-blue-600);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-hn-primary:hover,
+.btn-hn-primary:focus {
+  background-color: var(--hn-blue-500);
+  border-color: var(--hn-blue-500);
+  color: #fff;
+}
+
+/* ---------- Layout con sidebar ---------- */
+.hn-sidebar {
+  background-color: var(--hn-navy-900);
+  color: var(--hn-text-light);
+  min-height: 100vh;
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.hn-sidebar .brand {
+  padding: 1.25rem 1.25rem 1rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hn-sidebar .brand small {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--hn-text-muted);
+  font-weight: 600;
+}
+
+.hn-sidebar .nav-section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--hn-text-muted);
+  padding: 0 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.hn-sidebar .nav-link {
+  color: var(--hn-text-muted);
+  font-size: 0.9rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hn-sidebar .nav-link i {
+  width: 18px;
+  text-align: center;
+}
+
+.hn-sidebar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hn-sidebar .nav-link.active {
+  color: #fff;
+  background-color: rgba(59, 99, 240, 0.18);
+  border-left: 3px solid var(--hn-blue-500);
+  font-weight: 600;
+}
+
+.hn-sidebar .sidebar-user {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.hn-sidebar .avatar-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--hn-blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.hn-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.hn-topbar {
+  background-color: #fff;
+  border-bottom: 1px solid var(--hn-border);
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hn-topbar h5 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.hn-topbar .search-box {
+  max-width: 260px;
+}
+
+.hn-content {
+  padding: 1.5rem;
+}
+
+/* ---------- Cards / stats ---------- */
+.hn-card {
+  background: #fff;
+  border: 1px solid var(--hn-border);
+  border-radius: var(--hn-radius);
+  padding: 1.1rem 1.25rem;
+}
+
+.hn-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.hn-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hn-stat-label {
+  font-size: 0.78rem;
+  color: var(--hn-text-muted);
+  font-weight: 600;
+}
+
+.hn-stat-sub {
+  font-size: 0.72rem;
+  color: #9aa3c0;
+}
+
+/* ---------- Badges de estado ---------- */
+.badge-confirmado {
+  background-color: var(--hn-green-bg);
+  color: var(--hn-green);
+  font-weight: 600;
+  padding: 0.35em 0.7em;
+  border-radius: 50px;
+}
+
+.badge-cancelado {
+  background-color: var(--hn-orange-bg);
+  color: var(--hn-orange);
+  font-weight: 600;
+  padding: 0.35em 0.7em;
+  border-radius: 50px;
+}
+
+.badge-bloqueado {
+  background-color: var(--hn-red-bg);
+  color: var(--hn-red);
+  font-weight: 600;
+  padding: 0.35em 0.7em;
+  border-radius: 50px;
+}
+
+/* ---------- Tablas ---------- */
+.table-hn thead th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--hn-text-muted);
+  border-bottom: 1px solid var(--hn-border);
+  font-weight: 700;
+}
+
+.table-hn td {
+  vertical-align: middle;
+  font-size: 0.88rem;
+}
+
+.table-hn tr {
+  border-bottom: 1px solid var(--hn-border);
+}
+
+/* ---------- Filtros pill ---------- */
+.filter-pill {
+  border-radius: 50px;
+  border: 1px solid var(--hn-border);
+  background: #fff;
+  color: #566;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.9rem;
+}
+
+.filter-pill.active {
+  background-color: var(--hn-navy-900);
+  color: #fff;
+  border-color: var(--hn-navy-900);
+}
+
+/* ---------- Formulario nuevo dispositivo ---------- */
+.form-card-header {
+  background: linear-gradient(135deg, var(--hn-navy-900), var(--hn-navy-700));
+  color: #fff;
+  border-radius: var(--hn-radius) var(--hn-radius) 0 0;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-status-option {
+  border: 1px solid var(--hn-border);
+  border-radius: 0.5rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #566;
+}
+
+.form-status-option.selected-confirmado {
+  border-color: var(--hn-green);
+  color: var(--hn-green);
+  background: var(--hn-green-bg);
+}
+
+.form-label-hn {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: #566;
+}
+
+@media (max-width: 991.98px) {
+  .hn-sidebar {
+    position: fixed;
+    left: -240px;
+    z-index: 1040;
+    transition: left 0.2s ease;
+  }
+  .hn-sidebar.show {
+    left: 0;
+  }
+}

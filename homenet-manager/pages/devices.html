@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeNet Manager · Listado de Dispositivos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <div class="d-flex">
+    <nav class="hn-sidebar" id="hn-sidebar"></nav>
+
+    <div class="hn-main">
+      <header class="hn-topbar" id="hn-topbar" data-title="Listado de Dispositivos" data-add-button="false"></header>
+
+      <main class="hn-content">
+        <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+          <div>
+            <h4 class="fw-bold mb-0">Gestión de dispositivos</h4>
+            <p class="text-muted small mb-0">10 dispositivos encontrados</p>
+          </div>
+          <a href="device-new.html" class="btn btn-hn-primary btn-sm">
+            <i class="bi bi-plus-lg me-1"></i>Nuevo dispositivo
+          </a>
+        </div>
+
+        <div class="hn-card">
+          <!-- Filtros -->
+          <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+            <div class="input-group input-group-sm" style="max-width:260px;">
+              <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+              <input type="text" class="form-control" placeholder="Buscar por ID, usuario o nombre...">
+            </div>
+            <input type="date" class="form-control form-control-sm" style="max-width:160px;">
+
+            <div class="d-flex gap-2 ms-auto">
+              <button class="filter-pill active" data-filter-pill="todos">Todos</button>
+              <button class="filter-pill" data-filter-pill="confirmado">Confirmado</button>
+              <button class="filter-pill" data-filter-pill="cancelado">Cancelado</button>
+              <button class="filter-pill" data-filter-pill="bloqueado">Bloqueado</button>
+            </div>
+          </div>
+
+          <!-- Tabla -->
+          <div class="table-responsive">
+            <table class="table table-hn mb-0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Usuario</th>
+                  <th>Nombre del dispositivo</th>
+                  <th>Tipo</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-001</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Andrés García</td>
+                  <td>iPhone 14 Pro</td>
+                  <td>Smartphone</td>
+                  <td>2026-07-15</td>
+                  <td>08:32</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-002</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Juan Martínez</td>
+                  <td>MacBook Air M2</td>
+                  <td>Laptop</td>
+                  <td>2026-07-15</td>
+                  <td>09:14</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="cancelado">
+                  <td class="text-muted">D-003</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Andrés García</td>
+                  <td>Samsung Galaxy S23</td>
+                  <td>Smartphone</td>
+                  <td>2026-07-16</td>
+                  <td>11:05</td>
+                  <td><span class="badge-cancelado">Cancelado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-004</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Juan Martínez</td>
+                  <td>iPad Pro 12.9</td>
+                  <td>Tablet</td>
+                  <td>2026-07-16</td>
+                  <td>14:22</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="bloqueado">
+                  <td class="text-muted">D-005</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Andrés García</td>
+                  <td>Smart TV 65"</td>
+                  <td>TV</td>
+                  <td>2026-07-17</td>
+                  <td>18:45</td>
+                  <td><span class="badge-bloqueado">Bloqueado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-006</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Juan Martínez</td>
+                  <td>Dell XPS 15</td>
+                  <td>Laptop</td>
+                  <td>2026-07-17</td>
+                  <td>07:39</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-007</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Andrés García</td>
+                  <td>Google Nest Hub</td>
+                  <td>Smart Home</td>
+                  <td>2026-07-18</td>
+                  <td>10:10</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="bloqueado">
+                  <td class="text-muted">D-008</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Juan Martínez</td>
+                  <td>Xiaomi Mi 12</td>
+                  <td>Smartphone</td>
+                  <td>2026-07-18</td>
+                  <td>16:55</td>
+                  <td><span class="badge-bloqueado">Bloqueado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="cancelado">
+                  <td class="text-muted">D-009</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Andrés García</td>
+                  <td>PlayStation 5</td>
+                  <td>Gaming</td>
+                  <td>2026-07-19</td>
+                  <td>20:00</td>
+                  <td><span class="badge-cancelado">Cancelado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+                <tr data-row-status="confirmado">
+                  <td class="text-muted">D-010</td>
+                  <td><i class="bi bi-person-circle me-1"></i>Juan Martínez</td>
+                  <td>Router TP-Link</td>
+                  <td>Router</td>
+                  <td>2026-07-19</td>
+                  <td>06:00</td>
+                  <td><span class="badge-confirmado">Confirmado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="bi bi-x"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <p class="text-muted small mb-0">Mostrando 1-10 de 10 registros</p>
+            <nav>
+              <ul class="pagination pagination-sm mb-0">
+                <li class="page-item"><a class="page-link" href="#">‹</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">›</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    HN.mountLayout("dispositivos", "");
+  </script>
+</body>
+</html>
